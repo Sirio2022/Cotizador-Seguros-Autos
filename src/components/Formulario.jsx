@@ -60,7 +60,8 @@ export default function Formulario() {
 
         <input
           type="submit"
-          className="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-pointer font-bold p-3"
+          value="Cotizar"
+          className="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-pointer font-bold p-3 uppercase rounded-lg "
         />
       </form>
     </>
