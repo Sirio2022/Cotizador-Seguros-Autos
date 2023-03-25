@@ -3,6 +3,8 @@ import { Marcas, Years, Planes } from '../constants';
 import useCotizador from '../hooks/useCotizador';
 
 export default function Formulario() {
+  const { datos, handleChangeDatos } = useCotizador();
+
   return (
     <>
       <form>
@@ -14,6 +16,8 @@ export default function Formulario() {
           <select
             name="marca"
             className="bg-gray-100 border-2 w-full p-3 rounded-lg outline-none focus:bg-gray-200"
+            onChange={(e) => handleChangeDatos(e)}
+            value={datos.marca}
           >
             <option value="">--Selecciona la marca--</option>
 
@@ -33,6 +37,8 @@ export default function Formulario() {
           <select
             name="year"
             className="bg-gray-100 border-2 w-full p-3 rounded-lg outline-none focus:bg-gray-200"
+            onChange={(e) => handleChangeDatos(e)}
+            value={datos.year}
           >
             <option value="">--Selecciona el modelo--</option>
 
@@ -53,7 +59,12 @@ export default function Formulario() {
             {Planes.map((plan) => (
               <Fragment key={plan.id}>
                 <label>{plan.name}</label>
-                <input type="radio" name="plan" value={plan.id} />
+                <input
+                  type="radio"
+                  name="plan"
+                  value={plan.id}
+                  onChange={(e) => handleChangeDatos(e)}
+                />
               </Fragment>
             ))}
           </div>

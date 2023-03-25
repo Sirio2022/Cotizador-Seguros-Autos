@@ -4,8 +4,22 @@ const CotizadorContext = createContext(); // Crear el Contexto
 
 // Componente que envuelve a los demás componentes
 const CotizadorProvider = ({ children }) => {
+  const [datos, setDatos] = useState({
+    marca: '',
+    year: '',
+    plan: '',
+  });
+  const handleChangeDatos = (e) => {
+    setDatos({
+      ...datos,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
-    <CotizadorContext.Provider value={{}}>{children}</CotizadorContext.Provider>
+    <CotizadorContext.Provider value={{ datos, handleChangeDatos }}>
+      {children}
+    </CotizadorContext.Provider>
   );
 };
 
