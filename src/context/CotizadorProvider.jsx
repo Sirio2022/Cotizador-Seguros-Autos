@@ -17,6 +17,7 @@ const CotizadorProvider = ({ children }) => {
   });
 
   const [error, setError] = useState('');
+  const [resultado, setResultado] = useState(0);
 
   const handleChangeDatos = (e) => {
     setDatos({
@@ -44,7 +45,7 @@ const CotizadorProvider = ({ children }) => {
     resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
     // Formatear el resultado
     resultado = formatoMoneda(resultado);
-    return resultado;
+    setResultado(resultado);
   };
 
   return (
